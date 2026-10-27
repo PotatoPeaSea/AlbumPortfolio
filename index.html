@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Matthew Lin Portfolio</title>
+<meta name="description" content="Matthew Lin: embedded systems, PCB design and ML projects, with the board, firmware and software behind each one.">
+<meta name="theme-color" content="#0e1319">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23141414'/%3E%3Ccircle cx='16' cy='16' r='8' fill='%237be06a'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23141414'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Pixelify+Sans:wght@400;600;700&family=VT323&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#top"><i class="px" id="brandico"></i>Matthew Lin</a>
+  <a class="l" href="#projects">Projects</a><a class="l" href="#experience">Experience</a><a class="l" href="#skills">Skills</a><a class="l" href="#contact">Contact</a>
+</div></header>
+
+<main>
+<section class="hero" id="top"><div class="wrap">
+  <div>
+    <span class="eyebrow">Engineering Science · SFU · 2029</span>
+    <h1>Matthew Lin</h1>
+    <p class="lead">I build embedded systems end to end: the board, the firmware and the software around it.</p>
+    <p class="meta">Payload firmware lead on a student satellite. Field application engineer co-op at Quectel. Outside of work, robots, music players and photobooths.</p>
+    <div class="cta">
+      <a class="btn" href="#projects">See my projects ↓</a>
+      <a class="btn ghost" href="https://github.com/PotatoPeaSea" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn ghost" href="https://linkedin.com/in/matthew-lin-016746269" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+
+  <div class="win" aria-label="Off the clock jukebox">
+    <div class="tb"><span>Off the clock</span><small>PICK A DISC</small></div>
+    <div class="scene" id="scene">
+      <div class="stars" id="stars"></div><div class="moon"></div><div class="cloud px" id="cloud"></div>
+      <div class="ground"><div class="grass px"></div><div class="dirt px"></div></div>
+      <button class="jb" id="jb" type="button" aria-label="Jukebox. Click to eject the current disc."><div class="cube"><div class="f fl px"></div><div class="f fr px"></div><div class="f ft px"></div></div></button>
+    </div>
+    <div class="tray" id="tray"></div>
+    <div class="cap" id="cap" aria-live="polite"></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>1st</b><span>Overall at UBC Hack the Coast 2026, with TeleBuddy</span></div>
+    <div class="stat"><b>120</b><span>Parties served by the photobooth at StormHacks 2026</span></div>
+    <div class="stat"><b>7×</b><span>FPS gain running CNNs on a Qualcomm DSP at Quectel</span></div>
+    <div class="stat"><b>250+</b><span>People at the event opened with my LightBox controller</span></div>
+  </div>
+</div></section>
+
+<section class="sec" id="projects"><div class="wrap">
+  <div id="listview">
+    <div class="dh"><h2>Projects</h2><button class="showall" id="showall" type="button">Show all</button></div>
+    <p class="sub">Things I have designed and built. Open one to see what I did on it.</p>
+    <div class="chips2" id="chips" role="group" aria-label="Filter projects"></div>
+    <div class="cards" id="cards"></div>
+  </div>
+  <div class="album" id="album" hidden></div>
+</div></section>
+
+<section class="sec" id="experience"><div class="wrap">
+  <div class="sh"><span class="eyebrow">Experience</span><h2>Where I have worked</h2>
+    <p>Team and co-op roles, separate from the projects above.</p></div>
+  <div class="tl" id="tl"></div>
+  <div class="edu">
+    <div class="when"><b>Expected 2029</b>Burnaby, BC</div>
+    <div><h3>Bachelor of Applied Science, Engineering Science</h3><p class="org">Simon Fraser University · GPA 3.67</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="skills"><div class="wrap">
+  <div class="sh"><span class="eyebrow">Skills</span><h2>Tools I use</h2></div>
+  <div class="sk" id="sk"></div>
+</div></section>
+
+<section class="sec contact" id="contact"><div class="wrap">
+  <div class="sh"><span class="eyebrow">Contact</span><h2>Say hello</h2></div>
+  <div class="box">
+    <p>I am looking for embedded, firmware and hardware roles. The fastest way to reach me is email.</p>
+    <div class="mail"><code id="email">matthewmoxuanlin@gmail.com</code><button class="btn ghost" id="copy" type="button">Copy address</button><span class="copied" id="copied" role="status"></span></div>
+    <div class="cta" style="margin-top:0"><a class="btn ghost" href="https://github.com/PotatoPeaSea" target="_blank" rel="noopener">GitHub ↗</a><a class="btn ghost" href="https://linkedin.com/in/matthew-lin-016746269" target="_blank" rel="noopener">LinkedIn ↗</a></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">© 2026 Matthew Lin</div></footer>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Project media viewer"><button class="lbx" type="button">Close ✕</button><button class="lbp" type="button" aria-label="Previous">‹</button><figure class="lbf"><div class="lbm"></div><figcaption class="lbc"></figcaption></figure><button class="lbn" type="button" aria-label="Next">›</button></div>
+<noscript><p style="padding:24px;color:#e8edf3">This portfolio needs JavaScript to show its projects.</p></noscript>
+<script src="data/media.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
