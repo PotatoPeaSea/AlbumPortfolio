@@ -33,6 +33,6 @@ Cover images are cropped to a square, so square or near-square pictures look bes
 - Selphy Photobooth, Rocky, Pseudo Vinyl: own photos, CAD and PCB renders, and simulation output from the project repositories.
 - TeleBuddy and EcoDepot: photos from their Devpost submissions, plus PCB images rendered from the TeleBuddy 6-DOF Gerbers.
 - LightBox Controller: own demo videos and the flow charts from its README.
-- Voice Agent, LLM-Deployment, ArduCAM Bakeout Test UI: architecture diagrams drawn from the project READMEs, used as covers because these projects have no photos yet.
+- Voice Agent, ArduCAM Bakeout Test UI (and the hidden LLM-Deployment): architecture diagrams drawn from the project READMEs, used as covers because these projects have no photos yet.
 
 The Rocky results are from simulation only: the control board is designed but not built.
