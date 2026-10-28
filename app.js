@@ -262,7 +262,7 @@
       var bg=p.type==='video'?'':' style="--bg:url(\''+p.src+'\')"';
       var media=!p.src?'<div class="soon">Photos coming soon</div>':p.type==='video'?'<video src="'+p.src+'" muted loop playsinline preload="metadata"></video>':'<img src="'+p.src+'" alt="'+esc(p.cap||'')+'" loading="lazy">';
       return '<figure class="'+(i===slide?'on':'')+(p.type==='video'?' vid':'')+'"'+bg+'>'+media+(p.cap?'<figcaption>'+esc(p.cap)+'</figcaption>':'')+'</figure>';
-    }).join('')+'</div>'+(s.length>1?'<div class="dots">'+s.map(function(p,i){return '<i class="'+(i===slide?'on':'')+'"></i>';}).join('')+'</div>':'');
+    }).join('')+'</div>'+(s.length>1?'<button class="arr prev" type="button" aria-label="Previous slide">&#8249;</button><button class="arr next" type="button" aria-label="Next slide">&#8250;</button><div class="dots">'+s.map(function(p,i){return '<i class="'+(i===slide?'on':'')+'"></i>';}).join('')+'</div>':'');
     playVid();
   }
   function playVid(){
@@ -278,8 +278,9 @@
     var f=show.querySelectorAll('figure')[slide];
     showTimer=setTimeout(step,f&&f.classList.contains('vid')?6500:3800);
   }
-  function step(){
-    slide=(slide+1)%count();
+  function step(d){
+    d=typeof d==='number'?d:1; var n=count(); if(n<2)return;
+    slide=(slide+d+n)%n;
     Array.prototype.forEach.call(show.querySelectorAll('figure'),function(f,i){f.classList.toggle('on',i===slide);});
     Array.prototype.forEach.call(show.querySelectorAll('.dots i'),function(d,i){d.classList.toggle('on',i===slide);});
     playVid(); queue();
@@ -332,6 +333,8 @@
   }
   tray.addEventListener('click',function(e){var b=e.target.closest('.dk');if(b)play(parseInt(b.dataset.i,10));});
   jb.addEventListener('click',eject);
+  show.addEventListener('click',function(e){var b=e.target.closest('.arr');if(b)step(b.classList.contains('prev')?-1:1);});
+  show.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')step(-1);else if(e.key==='ArrowRight')step(1);});
 
   /* ---------- discography ---------- */
   var chipsEl=$('#chips'), cardsEl=$('#cards'), albumEl=$('#album'), listEl=$('#listview'), showBtn=$('#showall');

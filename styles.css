@@ -71,6 +71,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 .show img,.show video{position:relative;width:100%;height:100%;object-fit:contain;display:block;image-rendering:auto}
 .show figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 6px;background:linear-gradient(transparent,rgba(0,0,0,.78));font:400 18px/1.1 var(--f-vt);color:#fff}
 .show .soon{height:100%;display:grid;place-items:center;text-align:center;padding:8px;font:400 18px/1.2 var(--f-vt);color:#9fb0d0;background:repeating-conic-gradient(#161e30 0 25%,#121a2b 0 50%) 0 0/16px 16px}
+.show .arr{position:absolute;top:50%;margin-top:-24px;width:34px;height:48px;z-index:3;border:2px solid #05080b;background:rgba(13,17,23,.78);color:#fff;font:700 30px/1 var(--f-px);padding:0 0 4px;cursor:pointer;opacity:.85}
+.show .arr:hover,.show .arr:focus-visible{background:var(--gold);color:#2a2100;opacity:1}
+.show .arr.prev{left:8px}.show .arr.next{right:8px}
 .show .dots{position:absolute;top:8px;right:8px;display:flex;gap:4px;z-index:1}
 .show .dots i{width:6px;height:6px;background:rgba(255,255,255,.4)}
 .show .dots i.on{background:var(--gold)}
