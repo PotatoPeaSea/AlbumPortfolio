@@ -35,5 +35,3 @@ Cover images are cropped to a square, so square or near-square pictures look bes
 - LightBox Controller: own demo videos and the flow charts from its README.
 - Jukebox slideshows: own photos and clips, compressed to 1600 px photos and 720p video.
 - Voice Agent, ArduCAM Bakeout Test UI (and the hidden LLM-Deployment): architecture diagrams drawn from the project READMEs, used as covers because these projects have no photos yet.
-
-The Rocky results are from simulation only: the control board is designed but not built.

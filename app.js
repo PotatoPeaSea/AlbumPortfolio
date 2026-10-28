@@ -7,7 +7,6 @@
   /* ---------- data (from the master project and experience files) ---------- */
   var P=[
    {k:'p-rocky',t:'Rocky Five-Leg Walker',c:'#3fd1a1',ink:'#0f2a22',g:'rocky',cat:['hw','ml'],yr:'2026',tags:'KiCad · MuJoCo · PPO · Fusion 360',st:'Design + simulation',link:'https://github.com/PotatoPeaSea/Rocky',
-    note:'The board is designed but not built, and every walking result is from simulation.',
     desc:{why:'I wanted to build a cool robot, but I did not have the money for the full build, so I simulated everything. It also gave me an excuse to write the controls stack and dip my hands into reinforcement learning.',
       stats:[['300 M','training steps, all in simulation'],['98%','success on 5 cm rocks, in simulation']]},
     b:['Designed a 4-layer, 1.6 mm ring-shaped control PCB in KiCad 9 for a five-leg walking robot, with an ESP32 for servo control and a cut-out for a Raspberry Pi 5.',
