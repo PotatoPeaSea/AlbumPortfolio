@@ -1,5 +1,6 @@
 // Generated from the page's gallery data. Edit freely: paths are relative to index.html.
 window.PORTFOLIO_MEDIA = {
+  "life": [],
   "covers": {
     "p-voice": "media/voice-agent/01-pipeline-overview-speech-in-llm-speech-out-with-.png",
     "p-vinyl": "media/pseudo-vinyl/01-3d-render-of-the-enclosure-assembled.png",

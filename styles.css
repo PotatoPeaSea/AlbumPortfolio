@@ -43,7 +43,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .btn.ghost:hover{border-color:var(--accent)}
 .stats{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .stat{background:var(--surface);border:1px solid var(--line);padding:16px 16px 14px;min-width:0}
-.stat b{display:block;font:700 clamp(28px,4vw,40px)/1 var(--f-px);color:var(--gold)}
+.stat b{display:block;font:400 clamp(40px,5.6vw,56px)/1 var(--f-vt);letter-spacing:.02em;color:var(--gold)}
 .stat span{display:block;margin-top:6px;font-size:14px;color:var(--muted);line-height:1.35}
 
 /* ---------- small jukebox window (personal photos) ---------- */
@@ -59,7 +59,19 @@ button{font:inherit;color:inherit;cursor:pointer}
 @keyframes drift{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 300px))}}
 .ground{position:absolute;left:0;right:0;bottom:0;height:var(--g);z-index:1;filter:brightness(.72) saturate(.9)}
 .grass{height:22px}.dirt{height:calc(var(--g) - 22px)}
-.jb{position:absolute;left:50%;bottom:calc(var(--g) + 27px);width:96px;height:96px;margin-left:-48px;padding:0;border:0;background:none;z-index:2;transition:translate .15s}
+.jb{position:absolute;left:50%;bottom:calc(var(--g) + 27px);width:96px;height:96px;margin-left:-48px;padding:0;border:0;background:none;z-index:2;transition:translate .15s,left .7s cubic-bezier(.5,0,.2,1)}
+.scene.split .jb{left:27%}
+.show{position:absolute;right:5%;top:22px;bottom:calc(var(--g) + 18px);width:46%;z-index:2;border:3px solid #05080b;background:#0d1117;box-shadow:0 0 0 2px #5a6a8a,6px 6px 0 rgba(0,0,0,.45);opacity:0;transform:translateX(24px);visibility:hidden;pointer-events:none;transition:opacity .45s .35s,transform .6s .3s cubic-bezier(.2,.7,.2,1),visibility 0s .9s}
+.scene.split .show{opacity:1;transform:none;visibility:visible;pointer-events:auto;transition:opacity .45s .5s,transform .6s .45s cubic-bezier(.2,.7,.2,1),visibility 0s .5s}
+.show .sl{position:absolute;inset:0;overflow:hidden}
+.show figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .6s}
+.show figure.on{opacity:1}
+.show img{width:100%;height:100%;object-fit:cover;display:block;image-rendering:auto}
+.show figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 8px 5px;background:linear-gradient(transparent,rgba(0,0,0,.75));font:400 15px/1.1 var(--f-vt);color:#fff}
+.show .soon{height:100%;display:grid;place-items:center;text-align:center;padding:8px;font:400 18px/1.2 var(--f-vt);color:#9fb0d0;background:repeating-conic-gradient(#161e30 0 25%,#121a2b 0 50%) 0 0/16px 16px}
+.show .dots{position:absolute;top:6px;right:6px;display:flex;gap:4px;z-index:1}
+.show .dots i{width:6px;height:6px;background:rgba(255,255,255,.4)}
+.show .dots i.on{background:var(--gold)}
 .jb:hover{translate:0 -3px}
 .cube{position:relative;width:96px;height:96px;transform-style:preserve-3d;transform:rotateX(-30deg) rotateY(-45deg)}
 .cube .f{position:absolute;inset:0}
@@ -177,7 +189,7 @@ section.sec{padding-block:60px;border-top:1px solid var(--line);scroll-margin-to
 .dwhy p{font-size:17px;line-height:1.6;color:#e3e9f0}
 .dstats{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:420px}
 .dstat{background:var(--surface);border:1px solid var(--line);padding:12px 14px}
-.dstat b{display:block;font:700 clamp(24px,4vw,34px)/1 var(--f-px);color:var(--gold)}
+.dstat b{display:block;font:400 clamp(34px,5vw,46px)/1 var(--f-vt);color:var(--gold)}
 .dstat span{display:block;margin-top:4px;font-size:14px;color:var(--muted)}
 .dcta{background:#1a2a19;border:2px solid #2d6b24;padding:14px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}
 .dcta>div{flex:1;min-width:220px}
@@ -224,4 +236,4 @@ footer{padding-block:34px 60px;color:var(--muted);font:500 13px var(--f-mono);bo
   .job,.edu{grid-template-columns:1fr}
   .ah{grid-template-columns:1fr}.ah .acv{max-width:320px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cloud,.scene .stars i.tw,.jb.hit .cube,.note,.advlist li{animation:none}.fly,.jb,.cv,.play{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cloud,.scene .stars i.tw,.jb.hit .cube,.note,.advlist li{animation:none}.fly,.jb,.cv,.play,.show,.show figure{transition:none}}

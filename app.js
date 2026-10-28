@@ -103,10 +103,7 @@
        'Covered the thermal and flux models, solder flow, Gerber parser, serial parser and scorer with EditMode unit tests.']}
   ];
   var M=[
-   {k:'m-1',t:'Hackathon weekends',c:'#ff7a45',ink:'#16131f',g:'light',blurb:'Hackathon and jam builds since 2025, from a sorting trash can to teleoperated robot arms.'},
-   {k:'m-2',t:'Home server',c:'#7b6cff',ink:'#ffffff',g:'vinyl',blurb:'A Linux box at home that runs my voice agent and hosts photo galleries over Tailscale.'},
-   {k:'m-3',t:'Built for events',c:'#f4d35e',ink:'#2a2100',g:'booth',blurb:'A photobooth for StormHacks and a light show controller for an event of 250+ people.'},
-   {k:'m-4',t:'Your story here',c:'#4fd1c5',ink:'#0b2a27',g:'plus',blurb:'Placeholder disc. Add a photo here and tell me what this one should say.'}
+   {k:'m-1',t:'Life',c:'#4fd1c5',ink:'#0b2a27',g:'plus',blurb:'A few moments from outside the workshop.'}
   ];
   var X=[
    {t:'Field Application Engineer, Embedded Systems',org:'Quectel Vancouver R&D Centre · Richmond, BC · Co-op',when:'Apr 2026 – Dec 2026',tag:'Current',chips:['Yocto','Qualcomm SNPE','MIPI DSI','Bluetooth','V4L2','Linux kernel'],
@@ -229,7 +226,8 @@
   function imgSrc(k){return MEDIA.covers[k]||null;}
 
   /* ---------- hero jukebox ---------- */
-  var tray=$('#tray'), cap=$('#cap'), jb=$('#jb'), scene=$('#scene'), cur=null, sel=0, busy=false, noteTimer=null;
+  var tray=$('#tray'), cap=$('#cap'), jb=$('#jb'), scene=$('#scene'), cur=null, sel=0, busy=false, noteTimer=null, show=$('#show'), showTimer=null, slide=0;
+  var LIFE=MEDIA.life||[];
   function discHTML(m){
     var src=imgSrc(m.k);
     return '<span class="disc" style="background-image:'+m.body+';--c:'+m.c+';--ink:'+m.ink+'"><span class="art">'+(src?'<img src="'+src+'" alt="">':glyph(m.g))+'</span></span>';
@@ -256,7 +254,24 @@
     }
     spawn(); noteTimer=setInterval(spawn,450);
   }
-  function eject(){if(cur===null)return;cur=null;notes(false);renderTray();renderCap();}
+  function renderShow(){
+    var s=LIFE.length?LIFE:[{}];
+    show.innerHTML='<div class="sl">'+s.map(function(p,i){
+      return '<figure class="'+(i===slide?'on':'')+'">'+(p.src?'<img src="'+p.src+'" alt="'+esc(p.cap||'')+'">':'<div class="soon">Photos coming soon</div>')+(p.cap?'<figcaption>'+esc(p.cap)+'</figcaption>':'')+'</figure>';
+    }).join('')+'</div>'+(s.length>1?'<div class="dots">'+s.map(function(p,i){return '<i class="'+(i===slide?'on':'')+'"></i>';}).join('')+'</div>':'');
+  }
+  function step(){
+    slide=(slide+1)%LIFE.length;
+    Array.prototype.forEach.call(show.querySelectorAll('figure'),function(f,i){f.classList.toggle('on',i===slide);});
+    Array.prototype.forEach.call(show.querySelectorAll('.dots i'),function(d,i){d.classList.toggle('on',i===slide);});
+  }
+  function showOn(on){
+    clearInterval(showTimer); showTimer=null;
+    scene.classList.toggle('split',on);
+    show.setAttribute('aria-hidden',on?'false':'true');
+    if(on){slide=0;renderShow();if(LIFE.length>1)showTimer=setInterval(step,3500);}
+  }
+  function eject(){if(cur===null)return;cur=null;notes(false);showOn(false);renderTray();renderCap();}
   function fly(node,cb){
     var from=node.getBoundingClientRect(), jr=jb.getBoundingClientRect(), f=node.cloneNode(true);
     f.className='disc fly'; f.style.cssText+=';left:'+from.left+'px;top:'+from.top+'px;width:'+from.width+'px;height:'+from.height+'px';
@@ -267,13 +282,13 @@
     setTimeout(function(){if(f.parentNode)f.parentNode.removeChild(f);cb();},520);
   }
   function done(i){
-    cur=i; busy=false; renderTray(); renderCap(); notes(true);
+    cur=i; busy=false; renderTray(); renderCap(); notes(true); showOn(true);
     jb.classList.remove('hit'); void jb.offsetWidth; jb.classList.add('hit');
   }
   function play(i,quiet){
     if(busy)return;
     if(cur===i){eject();return;}
-    cur=null; notes(false); sel=i; renderTray(); renderCap();
+    cur=null; notes(false); showOn(false); sel=i; renderTray(); renderCap();
     var btn=tray.children[i], disc=btn&&btn.querySelector('.disc');
     if(quiet||reduce||!disc){done(i);return;}
     busy=true; fly(disc,function(){done(i);});
@@ -412,5 +427,5 @@
 
   /* ---------- start ---------- */
   renderChips(); renderCards(); renderTray(); renderCap();
-  play(0,true);
+  renderTray();renderCap();
 })();
