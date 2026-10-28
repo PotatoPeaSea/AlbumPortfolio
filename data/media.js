@@ -1,7 +1,167 @@
 // Generated from the page's gallery data. Edit freely: paths are relative to index.html.
 window.PORTFOLIO_MEDIA = {
-  "life": [],
+  "life": {
+    "hack": [
+      {
+        "src": "media/life/hackathons/01-telebuddy-on-stage.jpg",
+        "type": "image",
+        "cap": "TeleBuddy on stage"
+      },
+      {
+        "src": "media/life/hackathons/02-team-table-at-hack-the-coast-2026.jpg",
+        "type": "image",
+        "cap": "Team table at Hack the Coast 2026"
+      },
+      {
+        "src": "media/life/hackathons/03-lightbox-controller-at-the-event.mp4",
+        "type": "video",
+        "cap": "LightBox controller running the event"
+      },
+      {
+        "src": "media/life/hackathons/04-selphy-photobooth-at-stormhacks.mp4",
+        "type": "video",
+        "cap": "Selphy photobooth at StormHacks"
+      },
+      {
+        "src": "media/life/hackathons/05-cal-hacks.jpg",
+        "type": "image",
+        "cap": "Cal Hacks"
+      },
+      {
+        "src": "media/life/hackathons/06-expo-hall-selfie.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/hackathons/07-clash-royale-photo-booth.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/hackathons/08-robotics-competition-banner.jpg",
+        "type": "image",
+        "cap": ""
+      }
+    ],
+    "lab": [
+      {
+        "src": "media/life/lab/01-printer-teardown.mp4",
+        "type": "video",
+        "cap": "Printer teardown"
+      },
+      {
+        "src": "media/life/lab/02-bench-work-in-cleanroom-gear.jpg",
+        "type": "image",
+        "cap": "Bench work in cleanroom gear"
+      },
+      {
+        "src": "media/life/lab/03-workbench.jpg",
+        "type": "image",
+        "cap": "Workbench"
+      },
+      {
+        "src": "media/life/lab/04-bench-with-scopes.jpg",
+        "type": "image",
+        "cap": "Bench with scopes"
+      },
+      {
+        "src": "media/life/lab/05-dev-board-bring-up.jpg",
+        "type": "image",
+        "cap": "Dev board bring-up"
+      },
+      {
+        "src": "media/life/lab/06-trying-an-eeg-cap.jpg",
+        "type": "image",
+        "cap": "Trying an EEG cap"
+      },
+      {
+        "src": "media/life/lab/07-eeg-cap-clip.mp4",
+        "type": "video",
+        "cap": ""
+      }
+    ],
+    "friends": [
+      {
+        "src": "media/life/friends/01-hike-lookout.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/friends/02-lake-view.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/friends/03-late-night-drive-thru.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/friends/04-night-out-on-campus.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/friends/05-night-out-with-the-crew.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/friends/06-dinner-with-friends.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/friends/07-downtown-street.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/friends/08-san-francisco-park.jpg",
+        "type": "image",
+        "cap": "San Francisco"
+      },
+      {
+        "src": "media/life/friends/09-palace-of-fine-arts.jpg",
+        "type": "image",
+        "cap": "Palace of Fine Arts"
+      },
+      {
+        "src": "media/life/friends/10-golden-gate-at-sunset.jpg",
+        "type": "image",
+        "cap": "Golden Gate at sunset"
+      },
+      {
+        "src": "media/life/friends/11-golden-gate-from-the-rocks.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/friends/12-neon-night-in-the-city.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/friends/13-squad-selfie.jpg",
+        "type": "image",
+        "cap": ""
+      },
+      {
+        "src": "media/life/friends/14-berkeley-campanile.jpg",
+        "type": "image",
+        "cap": "Berkeley"
+      },
+      {
+        "src": "media/life/friends/15-senior-night.jpg",
+        "type": "image",
+        "cap": ""
+      }
+    ]
+  },
   "covers": {
+    "m-1": "media/life/hackathons/05-cal-hacks.jpg",
+    "m-2": "media/life/lab/02-bench-work-in-cleanroom-gear.jpg",
+    "m-3": "media/life/friends/10-golden-gate-at-sunset.jpg",
     "p-voice": "media/voice-agent/01-pipeline-overview-speech-in-llm-speech-out-with-.png",
     "p-vinyl": "media/pseudo-vinyl/01-3d-render-of-the-enclosure-assembled.png",
     "p-tele": "media/telebuddy/03-the-leader-arm-3d-printed-with-a-rotary-encoder-.jpg",

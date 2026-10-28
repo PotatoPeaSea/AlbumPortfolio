@@ -103,7 +103,9 @@
        'Covered the thermal and flux models, solder flow, Gerber parser, serial parser and scorer with EditMode unit tests.']}
   ];
   var M=[
-   {k:'m-1',t:'Life',c:'#4fd1c5',ink:'#0b2a27',g:'plus',blurb:'A few moments from outside the workshop.'}
+   {k:'m-1',set:'hack',t:'Hackathons',c:'#f4d35e',ink:'#2a2100',g:'booth',blurb:'Build weekends, demos and expo halls, from StormHacks to Cal Hacks.'},
+   {k:'m-2',set:'lab',t:'In the lab',c:'#ff7a45',ink:'#16131f',g:'light',blurb:'Workbenches, scopes, dev boards and a few teardowns.'},
+   {k:'m-3',set:'friends',t:'Friends & travel',c:'#4fd1c5',ink:'#0b2a27',g:'plus',blurb:'Trips, hikes, late dinners and the people I do all of this with.'}
   ];
   var X=[
    {t:'Field Application Engineer, Embedded Systems',org:'Quectel Vancouver R&D Centre · Richmond, BC · Co-op',when:'Apr 2026 – Dec 2026',tag:'Current',chips:['Yocto','Qualcomm SNPE','MIPI DSI','Bluetooth','V4L2','Linux kernel'],
@@ -226,8 +228,8 @@
   function imgSrc(k){return MEDIA.covers[k]||null;}
 
   /* ---------- hero jukebox ---------- */
-  var tray=$('#tray'), cap=$('#cap'), jb=$('#jb'), scene=$('#scene'), cur=null, sel=0, busy=false, noteTimer=null, show=$('#show'), showTimer=null, slide=0;
-  var LIFE=MEDIA.life||[];
+  var tray=$('#tray'), cap=$('#cap'), jb=$('#jb'), scene=$('#scene'), cur=null, sel=0, busy=false, noteTimer=null, show=$('#show'), showTimer=null, slide=0, win=$('#win'), heroWrap=$('#herowrap'), heroTxt=$('#herotxt'), dropped=false;
+  var LIFE=MEDIA.life||{};
   function discHTML(m){
     var src=imgSrc(m.k);
     return '<span class="disc" style="background-image:'+m.body+';--c:'+m.c+';--ink:'+m.ink+'"><span class="art">'+(src?'<img src="'+src+'" alt="">':glyph(m.g))+'</span></span>';
@@ -255,21 +257,54 @@
     spawn(); noteTimer=setInterval(spawn,450);
   }
   function renderShow(){
-    var s=LIFE.length?LIFE:[{}];
+    var set=cur===null?M[sel].set:M[cur].set, s=LIFE[set]&&LIFE[set].length?LIFE[set]:[{}];
     show.innerHTML='<div class="sl">'+s.map(function(p,i){
-      return '<figure class="'+(i===slide?'on':'')+'">'+(p.src?'<img src="'+p.src+'" alt="'+esc(p.cap||'')+'">':'<div class="soon">Photos coming soon</div>')+(p.cap?'<figcaption>'+esc(p.cap)+'</figcaption>':'')+'</figure>';
+      var bg=p.type==='video'?'':' style="--bg:url(\''+p.src+'\')"';
+      var media=!p.src?'<div class="soon">Photos coming soon</div>':p.type==='video'?'<video src="'+p.src+'" muted loop playsinline preload="metadata"></video>':'<img src="'+p.src+'" alt="'+esc(p.cap||'')+'" loading="lazy">';
+      return '<figure class="'+(i===slide?'on':'')+(p.type==='video'?' vid':'')+'"'+bg+'>'+media+(p.cap?'<figcaption>'+esc(p.cap)+'</figcaption>':'')+'</figure>';
     }).join('')+'</div>'+(s.length>1?'<div class="dots">'+s.map(function(p,i){return '<i class="'+(i===slide?'on':'')+'"></i>';}).join('')+'</div>':'');
+    playVid();
+  }
+  function playVid(){
+    Array.prototype.forEach.call(show.querySelectorAll('figure'),function(f){
+      var v=f.querySelector('video'); if(!v)return;
+      if(f.classList.contains('on')){v.currentTime=0;var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});}else v.pause();
+    });
+  }
+  function count(){return (LIFE[M[cur===null?sel:cur].set]||[]).length;}
+  function queue(){
+    clearTimeout(showTimer); showTimer=null;
+    if(count()<2)return;
+    var f=show.querySelectorAll('figure')[slide];
+    showTimer=setTimeout(step,f&&f.classList.contains('vid')?6500:3800);
   }
   function step(){
-    slide=(slide+1)%LIFE.length;
+    slide=(slide+1)%count();
     Array.prototype.forEach.call(show.querySelectorAll('figure'),function(f,i){f.classList.toggle('on',i===slide);});
     Array.prototype.forEach.call(show.querySelectorAll('.dots i'),function(d,i){d.classList.toggle('on',i===slide);});
+    playVid(); queue();
+  }
+  function flip(node,from){
+    if(reduce||!node.animate)return;
+    var to=node.getBoundingClientRect();
+    if(!to.width||!to.height)return;
+    node.animate([{transformOrigin:'0 0',transform:'translate('+(from.left-to.left)+'px,'+(from.top-to.top)+'px) scale('+(from.width/to.width)+','+(from.height/to.height)+')'},{transformOrigin:'0 0',transform:'none'}],{duration:700,easing:'cubic-bezier(.2,.7,.2,1)'});
+  }
+  /* drop the window below the title and widen it, or put it back in the hero */
+  function drop(on){
+    if(dropped===on)return; dropped=on;
+    var w0=win.getBoundingClientRect(), t0=heroTxt.getBoundingClientRect();
+    heroWrap.classList.toggle('dropped',on); win.classList.toggle('wide',on);
+    flip(win,w0); flip(heroTxt,t0);
+    if(on)setTimeout(function(){var r=win.getBoundingClientRect();if(r.bottom>window.innerHeight||r.top<64)win.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});},reduce?0:760);
   }
   function showOn(on){
-    clearInterval(showTimer); showTimer=null;
+    clearTimeout(showTimer); showTimer=null;
     scene.classList.toggle('split',on);
     show.setAttribute('aria-hidden',on?'false':'true');
-    if(on){slide=0;renderShow();if(LIFE.length>1)showTimer=setInterval(step,3500);}
+    drop(on);
+    if(on){slide=0;renderShow();queue();}
+    else Array.prototype.forEach.call(show.querySelectorAll('video'),function(v){v.pause();});
   }
   function eject(){if(cur===null)return;cur=null;notes(false);showOn(false);renderTray();renderCap();}
   function fly(node,cb){
@@ -282,13 +317,13 @@
     setTimeout(function(){if(f.parentNode)f.parentNode.removeChild(f);cb();},520);
   }
   function done(i){
-    cur=i; busy=false; renderTray(); renderCap(); notes(true); showOn(true);
+    cur=i; busy=false; renderTray(); renderCap(); notes(true); show.classList.remove('swap'); slide=0; scene.classList.add('split'); dropped?(renderShow(),queue(),show.setAttribute('aria-hidden','false')):showOn(true);
     jb.classList.remove('hit'); void jb.offsetWidth; jb.classList.add('hit');
   }
   function play(i,quiet){
     if(busy)return;
     if(cur===i){eject();return;}
-    cur=null; notes(false); showOn(false); sel=i; renderTray(); renderCap();
+    var keep=dropped; cur=null; notes(false); if(!keep)showOn(false); else{clearTimeout(showTimer);show.classList.add('swap');} sel=i; renderTray(); renderCap();
     var btn=tray.children[i], disc=btn&&btn.querySelector('.disc');
     if(quiet||reduce||!disc){done(i);return;}
     busy=true; fly(disc,function(){done(i);});

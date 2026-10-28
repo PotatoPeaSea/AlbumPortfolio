@@ -61,17 +61,30 @@ button{font:inherit;color:inherit;cursor:pointer}
 .grass{height:22px}.dirt{height:calc(var(--g) - 22px)}
 .jb{position:absolute;left:50%;bottom:calc(var(--g) + 27px);width:96px;height:96px;margin-left:-48px;padding:0;border:0;background:none;z-index:2;transition:translate .15s,left .7s cubic-bezier(.5,0,.2,1)}
 .scene.split .jb{left:27%}
-.show{position:absolute;right:5%;top:22px;bottom:calc(var(--g) + 18px);width:46%;z-index:2;border:3px solid #05080b;background:#0d1117;box-shadow:0 0 0 2px #5a6a8a,6px 6px 0 rgba(0,0,0,.45);opacity:0;transform:translateX(24px);visibility:hidden;pointer-events:none;transition:opacity .45s .35s,transform .6s .3s cubic-bezier(.2,.7,.2,1),visibility 0s .9s}
+.show{position:absolute;right:4%;top:18px;bottom:calc(var(--g) + 16px);width:50%;z-index:2;border:3px solid #05080b;background:#0d1117;box-shadow:0 0 0 2px #5a6a8a,6px 6px 0 rgba(0,0,0,.45);opacity:0;transform:translateX(24px);visibility:hidden;pointer-events:none;transition:opacity .45s .35s,transform .6s .3s cubic-bezier(.2,.7,.2,1),visibility 0s .9s}
 .scene.split .show{opacity:1;transform:none;visibility:visible;pointer-events:auto;transition:opacity .45s .5s,transform .6s .45s cubic-bezier(.2,.7,.2,1),visibility 0s .5s}
-.show .sl{position:absolute;inset:0;overflow:hidden}
-.show figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .6s}
+.show.swap{opacity:.2;transition:opacity .2s}
+.show .sl{position:absolute;inset:0;overflow:hidden;background:#0d1117}
+.show figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .6s;overflow:hidden}
 .show figure.on{opacity:1}
-.show img{width:100%;height:100%;object-fit:cover;display:block;image-rendering:auto}
-.show figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 8px 5px;background:linear-gradient(transparent,rgba(0,0,0,.75));font:400 15px/1.1 var(--f-vt);color:#fff}
+.show figure[style]::before{content:"";position:absolute;inset:-20px;background:var(--bg) center/cover;filter:blur(18px) brightness(.55)}
+.show img,.show video{position:relative;width:100%;height:100%;object-fit:contain;display:block;image-rendering:auto}
+.show figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 6px;background:linear-gradient(transparent,rgba(0,0,0,.78));font:400 18px/1.1 var(--f-vt);color:#fff}
 .show .soon{height:100%;display:grid;place-items:center;text-align:center;padding:8px;font:400 18px/1.2 var(--f-vt);color:#9fb0d0;background:repeating-conic-gradient(#161e30 0 25%,#121a2b 0 50%) 0 0/16px 16px}
-.show .dots{position:absolute;top:6px;right:6px;display:flex;gap:4px;z-index:1}
+.show .dots{position:absolute;top:8px;right:8px;display:flex;gap:4px;z-index:1}
 .show .dots i{width:6px;height:6px;background:rgba(255,255,255,.4)}
 .show .dots i.on{background:var(--gold)}
+.hero .wrap.dropped{grid-template-columns:minmax(0,1fr);gap:36px}
+.win{transition:max-width .01s}
+.win.wide{max-width:none;justify-self:stretch}
+.win.wide{display:grid;grid-template-columns:auto minmax(0,1fr)}
+.win.wide .tb,.win.wide .scene{grid-column:1/-1}
+.win.wide .scene{height:clamp(320px,42vw,500px);--g:80px}
+.win.wide .scene.split .jb{left:17%}
+.win.wide .show{width:62%;right:3%;top:22px;bottom:calc(var(--g) + 20px)}
+.win.wide .tray{flex-wrap:nowrap;justify-content:flex-start;padding:14px 20px 12px;border-right:3px solid #05080b}
+.win.wide .cap{min-height:0}
+.win.wide .cap p{max-width:70ch}
 .jb:hover{translate:0 -3px}
 .cube{position:relative;width:96px;height:96px;transform-style:preserve-3d;transform:rotateX(-30deg) rotateY(-45deg)}
 .cube .f{position:absolute;inset:0}
@@ -230,6 +243,7 @@ section.sec{padding-block:60px;border-top:1px solid var(--line);scroll-margin-to
 footer{padding-block:34px 60px;color:var(--muted);font:500 13px var(--f-mono);border-top:1px solid var(--line)}
 
 @media(max-width:900px){
+  .win.wide{display:block}.win.wide .tray{flex-wrap:wrap;justify-content:center;border-right:0}.win.wide .scene.split .jb{left:16%}.win.wide .show{width:57%;right:2%}.win.wide .scene{height:clamp(300px,82vw,440px)}
   .hero .wrap{grid-template-columns:1fr}.hero{padding-block:40px 32px}
   .win{justify-self:stretch;max-width:none}
   .stats{grid-template-columns:1fr 1fr}
