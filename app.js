@@ -79,7 +79,48 @@
     b:['★ Surge Choice Award at SFU StormHacks 2025.',
        'Built a trash can that automatically sorts recyclables and gives users refunds.',
        'Developed firmware for stepper-motor control and serial communication with a Python backend.',
-       'Organized tasks for a team of 4 based on strengths and specified high-level system design requirements.']}
+       'Organized tasks for a team of 4 based on strengths and specified high-level system design requirements.']},
+   {k:'p-pinpoint',t:'Pinpoint',c:'#5ad1ff',ink:'#06222e',g:'chip',cat:['hw','sw'],yr:'2026',tags:'Python · MCP · OpenCV · SO101 arm · Analog Discovery 3',st:'Hackathon · Cal Hacks 13.0',link:'https://devpost.com/software/probe-mcp',
+    links:[['GitHub','https://github.com/mutms7/hardware-troubleshooter/'],['Demo video','https://www.youtube.com/watch?v=0YZz3dWozMk']],
+    desc:{why:'An AI can write firmware and even help design a circuit, but it cannot touch the board, so human hands become the bottleneck. We wanted the agent to be able to ask the circuit itself.',
+      stats:[['4 of 4','needle landings on the same pad, 0.43 to 1.31 mm from its centre']]},
+    b:['Built a Python MCP server (FastMCP, Pydantic) with a team of four at Cal Hacks 13.0, so an AI agent can name a test pad on a circuit, have a robot arm place a needle on it, and read the result back from bench instruments.',
+       'Located test pads from a wrist camera by matching silkscreen features with SIFT against the KiCad reference and solving the board pose with PnP, at about 10 frames per second at 720p, rejecting pose jumps over 5 mm or 6 degrees.',
+       'Landed a needle on the same test pad in four consecutive trials, 0.43 to 1.31 mm from the pin centre, as judged by the camera and joint encoders.',
+       'Dropped per-frame pin detection by a vision model, which was too slow and too inaccurate, for a single arm-mounted camera with calibrated intrinsics where code plans the motion and the model only names the pad.',
+       'Added a time-of-flight sensor to the probe mount for the descent after the camera read the needle height as zero while it still hovered, and calibrated depth by hand-touching known pads after it was off by about 26 mm.',
+       'Added instrument drivers for a Digilent Analog Discovery 3, capturing waveform measurements and decoding UART, I2C and PWM logic, and read time-of-flight and 8x8 thermal sensors on an ESP32-S3 sensor head.',
+       'Built safety guards so the arm starts disarmed and refuses every move until armed, journals each uncertain move to SQLite before it runs, and blocks further measurements after a timeout until someone inspects the bench. Captures stay marked as unverified contact until the contact check is integrated.',
+       'Read a 7-segment multimeter display by camera after a second robot arm turns the meter dial.']},
+   {k:'p-hudson',t:'HUDson',c:'#ffb347',ink:'#2d1a00',g:'plus',cat:['hw','sw'],yr:'2026',tags:'ESP32 · C++ · Kotlin · Python · 3D printing',st:'Prototype · Best Use of ElevenLabs',link:'https://devpost.com/software/hudson-uw5kn7',
+    links:[['Website','https://wearhudson.tech/'],['GitHub','https://github.com/iancdev/hudglasses'],['Demo video','https://www.youtube.com/watch?v=4YbXLKoHIKk']],
+    desc:{why:'Games show a HUD for sounds you cannot hear. We wanted the same thing in the real world for people with hearing loss: the direction and type of a sound, shown on glasses and felt on the wrist.',
+      stats:[['3','wearables: neckband, AR glasses and wristbands'],['MLH','Best Use of ElevenLabs, nwHacks 2026']]},
+    b:['★ [MLH] Best Use of ElevenLabs at nwHacks 2026.',
+       'Built a set of wearables with a team of four that make sound visible and tactile for people with hearing loss: a neckband that senses audio in all directions, AR glasses and vibrating wristbands.',
+       'Pinpointed the direction and type of a sound from the neckband microphones, with processing on a laptop that sends data to the wristbands and to an Android app that drives the glasses display.',
+       'Connected every wearable wirelessly through ESP32 microcontrollers and 3D printed the enclosures, aiming for a minimal design with no visible wires.',
+       'Worked through hardware failures: a microphone died mid-build, there was no USB hub for Android debug data, and wireless links were inconsistent. Backup microphones and a power bank kept the prototype running.',
+       'Used C++ on the ESP32s, Python for the audio processing and Kotlin for the Android app that drives the glasses.']},
+   {k:'p-flunk',t:'Flunk Alarm',c:'#ff7a6b',ink:'#2b0d09',g:'cam',cat:['hw','sw'],yr:'2025',tags:'ESP32-CAM · Python · OpenCV · Fusion 360 · Servos',st:'Prototype · Technology Winner',link:'https://devpost.com/software/flunk-alarm',
+    links:[['GitHub','https://github.com/danny7131/wie-hackathon'],['CAD model','https://a360.co/4nh9rZE'],['Demo video','https://vimeo.com/1128546041']],
+    desc:{why:'Everyone has fallen asleep during a late-night study session. We wanted a system that notices and actually does something about it, in a lighthearted way: a mist of water.',
+      stats:[['5','teammates'],['Winner','Technology prize, WiEXESSS Hackathon']]},
+    b:['★ Technology Winner at the WiEXESSS Hackathon.',
+       'Built a drowsiness detector with a team of five: an ESP32-CAM with an OV2640 sensor streams video to a Python backend (OpenCV, MediaPipe) that tracks eye state and flags prolonged eye closure.',
+       'Designed a differential wrist in Fusion 360, 3D printed it and drove it with goBILDA servos to aim the camera and a toy water gun, with a servo that pulls the trigger string to spray a light mist.',
+       'Built a web dashboard to view the camera feed, switch the system on and off, and choose study or break modes.',
+       'Worked within the ESP32-CAM memory and CPU limits, tuned response delays between the camera, detection and servos, and calibrated the wrist through iterative mechanical testing.',
+       'Brought a 3D printer to the hackathon and printed the parts on site.']},
+   {k:'p-dingers',t:'Data Dingers',c:'#ffd23f',ink:'#2a2300',g:'iron',cat:['ml'],yr:'2025',tags:'Python · scikit-learn · XGBoost · pandas · Jupyter',st:'Hackathon · DataJam 2025',link:'https://devpost.com/software/data-dingers',
+    links:[['GitHub','https://github.com/geniuspig2986/Whiff-and-Hard-Hit-Predictor']],
+    desc:{why:'The best moment in baseball is a dinger, but going for hard contact is not always the right call against every pitch. We wanted a data-backed answer to how to hit.',
+      stats:[['0.81','ROC AUC for the whiff model'],['0.70','ROC AUC for the hard-hit model']]},
+    b:['Built models with a team of four at DataJam 2025 that predict whiff and hard-hit probability from batting and pitching data, to find swings that maximise hard hits while avoiding strikeouts.',
+       'Cleaned the data and chose features in a Jupyter notebook with pandas, then split it into subsets for training and testing.',
+       'Compared logistic regression, random forest and XGBoost with calibration tests, and picked random forest because the base model had the highest accuracy.',
+       'Measured the whiff model at a ROC AUC of 0.81 (average precision 0.63) and the hard-hit logistic regression at 0.70 (0.38) on the test set.',
+       'Used a random forest to map bat speed and swing length to a score that weighs hard hits against whiffs, and drew heatmaps for three weightings (hard hit minus 1x, 1.5x and 2x whiff).']}
   ];
   /* Hidden for now: move an entry back into P to show it again. */
   var HIDDEN=[
@@ -370,7 +411,8 @@
       '<div class="ah"><div class="acv"><span class="cv">'+coverInner(p)+'</span>'+'</div>'+
       '<div><span class="eyebrow">Project · '+p.yr+'</span><h3>'+esc(p.t)+'</h3><div class="tags">'+esc(p.tags)+'</div><span class="pill">'+esc(p.st)+'</span>'+
       descHTML(p)+(p.note?'<div class="note2">'+esc(p.note)+'</div>':'')+
-      '<div class="acta"><a class="btn" href="'+p.link+'" target="_blank" rel="noopener">View project ↗</a></div></div></div>'+
+      '<div class="acta"><a class="btn" href="'+p.link+'" target="_blank" rel="noopener">View project ↗</a>'+
+      (p.links||[]).map(function(l){return '<a class="btn ghost" href="'+esc(l[1])+'" target="_blank" rel="noopener">'+esc(l[0])+' ↗</a>';}).join('')+'</div></div></div>'+
       galleryHTML(p)+'<div class="advbox"><div class="ttl"><span>Advancements</span><small>'+p.b.length+' for this project</small></div><ul class="advlist">'+bullets(p)+'</ul>'+
       '<div class="pn"><button type="button" id="prev">← '+esc(prev.t)+'</button><button type="button" id="next">'+esc(next.t)+' →</button></div></div>';
     var ci=$('#capin',albumEl); if(ci){ci.focus();ci.setSelectionRange(ci.value.length,ci.value.length);}

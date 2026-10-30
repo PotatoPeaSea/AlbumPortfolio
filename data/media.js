@@ -171,7 +171,11 @@ window.PORTFOLIO_MEDIA = {
     "p-flux": "media/virtual-flux/01-mcu-board-for-the-6-dof-arm-rendered-from-the-ki.png",
     "p-eco": "media/ecodepot/01-the-prototype-on-the-bench.png",
     "p-booth": "media/selphy-photobooth/04-full-v7-assembly-in-fusion-360-enclosure-display.png",
-    "p-arducam": "media/arducam-bakeout-ui/01-architecture-overview-the-qt-app-the-controller-.png"
+    "p-arducam": "media/arducam-bakeout-ui/01-architecture-overview-the-qt-app-the-controller-.png",
+    "p-pinpoint": "media/pinpoint/01-physical-setup.jpg",
+    "p-hudson": "media/hudson/02-more-renders.jpg",
+    "p-flunk": "media/flunk-alarm/09-differential-wrist-cad.jpg",
+    "p-dingers": "media/data-dingers/01-heatmap-hard-hit-minus-2x-whiff.png"
   },
   "gallery": {
     "p-voice": [
@@ -452,6 +456,204 @@ window.PORTFOLIO_MEDIA = {
         "src": "media/arducam-bakeout-ui/01-architecture-overview-the-qt-app-the-controller-.png",
         "type": "image",
         "cap": "Architecture overview: the Qt app, the controller and the camera"
+      }
+    ],
+    "p-pinpoint": [
+      {
+        "src": "media/pinpoint/01-physical-setup.jpg",
+        "type": "image",
+        "cap": "Physical Setup"
+      },
+      {
+        "src": "media/pinpoint/02-custom-end-effector-designed-for-so101-arm.jpg",
+        "type": "image",
+        "cap": "Custom End-effector Designed for SO101 arms"
+      },
+      {
+        "src": "media/pinpoint/03-onshape-assembly-of-the-arm-with-custom-en.png",
+        "type": "image",
+        "cap": "Onshape assembly of the arm with custom end-effector that can swap probes"
+      },
+      {
+        "src": "media/pinpoint/04-digital-twin-w-encoder-inputs-and-ik-outpu.png",
+        "type": "image",
+        "cap": "Digital Twin w/ Encoder inputs and IK output"
+      },
+      {
+        "src": "media/pinpoint/05-abstracted-controls-pipeline.png",
+        "type": "image",
+        "cap": "Abstracted Controls Pipeline"
+      },
+      {
+        "src": "media/pinpoint/06-detailed-pinout-tracking-and-probe-alignme.png",
+        "type": "image",
+        "cap": "Detailed Pinout Tracking and Probe Alignment Pipeline"
+      },
+      {
+        "src": "media/pinpoint/07-sample-input-frame-of-the-probe-camera.jpg",
+        "type": "image",
+        "cap": "Sample input frame of the probe camera"
+      },
+      {
+        "src": "media/pinpoint/08-determining-the-intrinsic-calibration-matr.jpg",
+        "type": "image",
+        "cap": "Determining the intrinsic calibration matrix of the camera for PnP controls"
+      },
+      {
+        "src": "media/pinpoint/09-precise-probe-matching-pink-probe-position.jpg",
+        "type": "image",
+        "cap": "Precise probe matching (pink: probe position, cyan: projected probe position on PCB)"
+      },
+      {
+        "src": "media/pinpoint/10-pnp-schematic-overlay-and-reference-pin-tr.jpg",
+        "type": "image",
+        "cap": "PnP schematic overlay and reference pin tracking"
+      },
+      {
+        "src": "media/pinpoint/11-thermal-footage-of-a-circuit-with-an-ic-sh.jpg",
+        "type": "image",
+        "cap": "Thermal footage of a circuit with an IC showing a heat anomaly (swapped Vin and GND)"
+      },
+      {
+        "src": "media/pinpoint/12-multimeter-arm-camera-view.jpg",
+        "type": "image",
+        "cap": "Multimeter Arm Camera View"
+      },
+      {
+        "src": "media/pinpoint/13-probe-mode-switching-to-thermal-view.mp4",
+        "type": "video",
+        "cap": "Probe mode switching to thermal view"
+      }
+    ],
+    "p-hudson": [
+      {
+        "src": "media/hudson/01-renders-of-our-tech.jpg",
+        "type": "image",
+        "cap": "Renders of our tech"
+      },
+      {
+        "src": "media/hudson/02-more-renders.jpg",
+        "type": "image",
+        "cap": "More renders"
+      },
+      {
+        "src": "media/hudson/03-our-logo.jpg",
+        "type": "image",
+        "cap": "Our Logo"
+      },
+      {
+        "src": "media/hudson/04-neckband-animation.mp4",
+        "type": "video",
+        "cap": "Neckband animation"
+      },
+      {
+        "src": "media/hudson/05-wrist-module-animation.mp4",
+        "type": "video",
+        "cap": "Wrist module animation"
+      },
+      {
+        "src": "media/hudson/06-the-neckband.jpg",
+        "type": "image",
+        "cap": "The neckband"
+      },
+      {
+        "src": "media/hudson/07-the-wrist-straps.jpg",
+        "type": "image",
+        "cap": "The wrist straps"
+      },
+      {
+        "src": "media/hudson/08-the-glasses.jpg",
+        "type": "image",
+        "cap": "The glasses"
+      },
+      {
+        "src": "media/hudson/09-demo-image.jpg",
+        "type": "image",
+        "cap": "Demo image"
+      },
+      {
+        "src": "media/hudson/10-debugging-the-glasses-display.jpg",
+        "type": "image",
+        "cap": "Debugging the glasses display"
+      }
+    ],
+    "p-flunk": [
+      {
+        "src": "media/flunk-alarm/01-removing-the-supports-from-the-3d-prints.jpg",
+        "type": "image",
+        "cap": "Removing the supports from the 3D prints"
+      },
+      {
+        "src": "media/flunk-alarm/02-water-gun-trigger-taken-apart-to-work-out.jpg",
+        "type": "image",
+        "cap": "Water gun trigger taken apart to work out the mechanism"
+      },
+      {
+        "src": "media/flunk-alarm/03-the-esp32-cam.jpg",
+        "type": "image",
+        "cap": "The ESP32-CAM"
+      },
+      {
+        "src": "media/flunk-alarm/04-the-3d-printer-we-brought-at-work.jpg",
+        "type": "image",
+        "cap": "The 3D printer we brought, at work"
+      },
+      {
+        "src": "media/flunk-alarm/05-first-front-end-design-on-the-laptop.jpg",
+        "type": "image",
+        "cap": "First front-end design on the laptop"
+      },
+      {
+        "src": "media/flunk-alarm/06-motors-for-the-differential-wrist.jpg",
+        "type": "image",
+        "cap": "Motors for the differential wrist"
+      },
+      {
+        "src": "media/flunk-alarm/07-coding-the-camera.jpg",
+        "type": "image",
+        "cap": "Coding the camera"
+      },
+      {
+        "src": "media/flunk-alarm/08-completed-3d-printed-parts.jpg",
+        "type": "image",
+        "cap": "Completed 3D-printed parts"
+      },
+      {
+        "src": "media/flunk-alarm/09-differential-wrist-cad.jpg",
+        "type": "image",
+        "cap": "Differential wrist CAD"
+      },
+      {
+        "src": "media/flunk-alarm/10-project-poster.jpg",
+        "type": "image",
+        "cap": "Project poster"
+      }
+    ],
+    "p-dingers": [
+      {
+        "src": "media/data-dingers/01-heatmap-hard-hit-minus-2x-whiff.png",
+        "type": "image",
+        "cap": "Random forest heatmap of bat speed against swing length, scoring hard hit minus 2x whiff"
+      },
+      {
+        "src": "media/data-dingers/02-heatmap-hard-hit-minus-whiff.png",
+        "type": "image",
+        "cap": "The same heatmap scoring hard hit minus whiff"
+      },
+      {
+        "src": "media/data-dingers/03-heatmap-hard-hit-minus-1-5x-whiff.png",
+        "type": "image",
+        "cap": "The same heatmap scoring hard hit minus 1.5x whiff"
+      },
+      {
+        "src": "media/data-dingers/04-whiff-model-random-forest-test-set.png",
+        "type": "image",
+        "cap": "Whiff model (random forest) on the test set: confusion matrix, ROC, precision-recall and calibration"
+      },
+      {
+        "src": "media/data-dingers/05-hard-hit-model-logistic-regression-test-set.png",
+        "type": "image",
+        "cap": "Hard-hit model (logistic regression) on the test set: confusion matrix, ROC, precision-recall and calibration"
       }
     ]
   }

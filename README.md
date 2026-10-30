@@ -31,7 +31,7 @@ Cover images are cropped to a square, so square or near-square pictures look bes
 ## Media sources
 
 - Selphy Photobooth, Rocky, Pseudo Vinyl: own photos, CAD and PCB renders, and simulation output from the project repositories.
-- TeleBuddy and EcoDepot: photos from their Devpost submissions, plus PCB images rendered from the TeleBuddy 6-DOF Gerbers.
+- TeleBuddy, EcoDepot, Pinpoint, HUDson, Flunk Alarm and Data Dingers: photos, renders, charts and demo clips from their Devpost submissions (GIFs converted to MP4), plus PCB images rendered from the TeleBuddy 6-DOF Gerbers. Demo videos and repos are linked from each project page via the `links` field in `app.js`.
 - LightBox Controller: own demo videos and the flow charts from its README.
 - Jukebox slideshows: own photos and clips, compressed to 1600 px photos and 720p video.
 - Voice Agent, ArduCAM Bakeout Test UI (and the hidden LLM-Deployment): architecture diagrams drawn from the project READMEs, used as covers because these projects have no photos yet.
