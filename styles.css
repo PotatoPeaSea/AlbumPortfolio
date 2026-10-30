@@ -36,6 +36,13 @@ button{font:inherit;color:inherit;cursor:pointer}
 .hero h1{font:700 clamp(44px,8vw,88px)/.95 var(--f-px);letter-spacing:.01em;margin:14px 0 18px;text-wrap:balance}
 .hero .lead{font-size:clamp(17px,2.2vw,20px);color:#c9d3df;max-width:46ch}
 .hero .meta{margin-top:14px;color:var(--muted);font-size:15px;max-width:52ch}
+.now{margin-top:22px;display:grid;gap:12px;max-width:60ch}
+.now li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding-left:20px;position:relative;line-height:1.5}
+.now li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;background:var(--accent);box-shadow:2px 2px 0 #3f8a34}
+.now .k{font:500 14px var(--f-mono);color:var(--muted);min-width:6.4em}
+.now .ar{font:700 18px var(--f-px);color:var(--accent);font-style:normal}
+.now .v{color:var(--fg);font-size:17px;flex:1 1 220px}
+.now .chip{display:inline-block;vertical-align:1px;margin:0 2px}
 .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:600 15px var(--f-ui);padding:11px 18px;border:2px solid var(--accent);color:var(--accent-ink);background:var(--accent);box-shadow:0 4px 0 #3f8a34;border-radius:2px}
 .btn:hover{transform:translateY(1px);box-shadow:0 3px 0 #3f8a34}

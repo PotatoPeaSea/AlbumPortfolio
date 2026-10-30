@@ -111,7 +111,10 @@
        'Designed a differential wrist in Fusion 360, 3D printed it and drove it with goBILDA servos to aim the camera and a toy water gun, with a servo that pulls the trigger string to spray a light mist.',
        'Built a web dashboard to view the camera feed, switch the system on and off, and choose study or break modes.',
        'Worked within the ESP32-CAM memory and CPU limits, tuned response delays between the camera, detection and servos, and calibrated the wrist through iterative mechanical testing.',
-       'Brought a 3D printer to the hackathon and printed the parts on site.']},
+       'Brought a 3D printer to the hackathon and printed the parts on site.']}
+  ];
+  /* Hidden for now: move an entry back into P to show it again. */
+  var HIDDEN=[
    {k:'p-dingers',t:'Data Dingers',c:'#ffd23f',ink:'#2a2300',g:'iron',cat:['ml'],yr:'2025',tags:'Python · scikit-learn · XGBoost · pandas · Jupyter',st:'Hackathon · DataJam 2025',link:'https://devpost.com/software/data-dingers',
     links:[['GitHub','https://github.com/geniuspig2986/Whiff-and-Hard-Hit-Predictor']],
     desc:{why:'The best moment in baseball is a dinger, but going for hard contact is not always the right call against every pitch. We wanted a data-backed answer to how to hit.',
@@ -120,10 +123,7 @@
        'Cleaned the data and chose features in a Jupyter notebook with pandas, then split it into subsets for training and testing.',
        'Compared logistic regression, random forest and XGBoost with calibration tests, and picked random forest because the base model had the highest accuracy.',
        'Measured the whiff model at a ROC AUC of 0.81 (average precision 0.63) and the hard-hit logistic regression at 0.70 (0.38) on the test set.',
-       'Used a random forest to map bat speed and swing length to a score that weighs hard hits against whiffs, and drew heatmaps for three weightings (hard hit minus 1x, 1.5x and 2x whiff).']}
-  ];
-  /* Hidden for now: move an entry back into P to show it again. */
-  var HIDDEN=[
+       'Used a random forest to map bat speed and swing length to a score that weighs hard hits against whiffs, and drew heatmaps for three weightings (hard hit minus 1x, 1.5x and 2x whiff).']},
    {k:'p-llm',t:'LLM-Deployment',c:'#33b5e5',ink:'#04202b',g:'chip',cat:['sw','ml'],yr:'2026',tags:'Qualcomm NPU · QNN Genie · llama.cpp · React Native · Kotlin',st:'Working prototype',link:'https://github.com/PotatoPeaSea/LLM-Deployment',
     b:['Built an on-device chat app that runs five LLMs (Llama 3.2 1B and 3B, Qwen3 4B, Qwen3.5 2B, Gemma 4 E2B) on the Hexagon NPU of a Qualcomm QCS8550 board, on Android and on Ubuntu.',
        'Brought up two NPU runtimes on one chip: QNN Genie context binaries behind a JNI bridge that keeps the KV cache between turns so each turn prefills only the new text, and GGUF models through GenieX (llama.cpp).',
