@@ -205,6 +205,16 @@ window.PORTFOLIO_MEDIA = {
         "src": "media/pseudo-vinyl/04-kicad-schematic-of-the-player-s-pcb.png",
         "type": "image",
         "cap": "KiCad schematic of the player's PCB"
+      },
+      {
+        "src": "media/pseudo-vinyl/05-v3-board-render-with-the-display-fitted.png",
+        "type": "image",
+        "cap": "v3 integrated board render with the round display fitted (designed, not built yet)"
+      },
+      {
+        "src": "media/pseudo-vinyl/06-v3-board-top-view.png",
+        "type": "image",
+        "cap": "v3 board top view: WROVER module, microSD, DAC and headphone amp"
       }
     ],
     "p-tele": [
