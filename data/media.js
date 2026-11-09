@@ -215,6 +215,11 @@ window.PORTFOLIO_MEDIA = {
         "src": "media/pseudo-vinyl/06-v3-board-top-view.png",
         "type": "image",
         "cap": "v3 board top view: WROVER module, microSD, DAC and headphone amp"
+      },
+      {
+        "src": "media/pseudo-vinyl/07-v3-board-kicad-schematic.png",
+        "type": "image",
+        "cap": "KiCad schematic of the v3 integrated board"
       }
     ],
     "p-tele": [
